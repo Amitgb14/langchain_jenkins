@@ -1,13 +1,13 @@
 from typing import Type
 
-from langchain_jenkins.tools import JenkinsTool
+from langchain_jenkins.tools import JenkinsJobRun
 from langchain_tests.unit_tests import ToolsUnitTests
 
 
-class TestParrotMultiplyToolUnit(ToolsUnitTests):
+class TestJenkinsJobRunUnit(ToolsUnitTests):
     @property
-    def tool_constructor(self) -> Type[JenkinsTool]:
-        return JenkinsTool
+    def tool_constructor(self) -> Type[JenkinsJobRun]:
+        return JenkinsJobRun
 
     @property
     def tool_constructor_params(self) -> dict:
@@ -16,12 +16,4 @@ class TestParrotMultiplyToolUnit(ToolsUnitTests):
         # as a dictionary, e.g.: `return {'some_arg': 42}`
         return {}
 
-    @property
-    def tool_invoke_params_example(self) -> dict:
-        """
-        Returns a dictionary representing the "args" of an example tool call.
 
-        This should NOT be a ToolCall dict - i.e. it should not
-        have {"name", "id", "args"} keys.
-        """
-        return {"a": 2, "b": 3}
